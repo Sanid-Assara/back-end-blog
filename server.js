@@ -41,5 +41,3 @@ app.delete("/posts/:id", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`The server is running at http://localhost:${PORT}/`);
 });
-
-test;
