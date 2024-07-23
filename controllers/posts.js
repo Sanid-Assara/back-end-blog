@@ -1,4 +1,4 @@
-import { post } from "../models/post.js";
+import Post from "../models/Post.js";
 // import pg from "pg";
 // const { Client } = pg;
 
@@ -34,7 +34,22 @@ export const getPost = async (req, res) => {
 //Sanad
 // 3- Form to edit post and function to delete - put and delete request
 export const updatePost = async (req, res) => {
-  // You code solution goes here!
+  try {
+    const {
+      body: { author, title, content, cover, date },
+      params: { id },
+    } = req;
+    if (!author || !title || !content || !cover || !date)
+      return res.status(400).json({
+        error: "All field are required",
+      });
+    const post = await Post.findByPk(id);
+    if (!post) return res.status(404).json({ error: "Post not found" });
+    await post.update(req.body);
+    res.json(post);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 export const deletePost = async (req, res) => {

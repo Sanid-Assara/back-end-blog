@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db/index.js";
 
-export const post = sequelize.define("post", {
+export const Post = sequelize.define("Post", {
   author: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -24,6 +24,6 @@ export const post = sequelize.define("post", {
   },
 });
 
-post.sync();
+Post.sync();
 
-export default post;
+export default Post;
