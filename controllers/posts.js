@@ -5,12 +5,13 @@ import { post } from "../models/post.js";
 //Erika
 // 1- Homepage (this include Nav and footer) a list of post + get request to retrieve all the post
 export const getPosts = async (req, res) => {
-  res.send("getProducts Test");
+  res.send("<h1>If you see me, it means it works</h1>"); //Delete this when you start coding
+  // You code solution goes here!
 };
 //Erika
 
 //Berkan
-// 2- Form to add new post and display post detail + Post request and get request posts/:id  //Berkan
+// 2- Form to add new post and display post detail + Post request and get request posts/:id
 export const createPost = async (req, res) => {
   try {
     // const { author, title, content, cover } = req.body;
@@ -26,17 +27,17 @@ export const createPost = async (req, res) => {
 };
 
 export const getPost = async (req, res) => {
-  res.send("getProduct Test");
+  // You code solution goes here!
 };
 //Berkan
 
 //Sanad
 // 3- Form to edit post and function to delete - put and delete request
 export const updatePost = async (req, res) => {
-  res.send("updateProduct Test");
+  // You code solution goes here!
 };
 
 export const deletePost = async (req, res) => {
-  res.send("deleteProduct Test");
+  // You code solution goes here!
 };
 //Sanad
