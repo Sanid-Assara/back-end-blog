@@ -53,6 +53,16 @@ export const updatePost = async (req, res) => {
 };
 
 export const deletePost = async (req, res) => {
-  // You code solution goes here!
+  try {
+    const {
+      params: { id },
+    } = req;
+    const user = await Post.findByPk(id);
+    if (!user) return res.status(404).json({ error: "Post not found" });
+    await user.destroy();
+    res.json({ message: "Post deleted" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 //Sanad
