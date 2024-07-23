@@ -1,18 +1,17 @@
 {
-  "name": "back-end-blog",
+  "name": "prje",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --env-file=.env server.js",
-    "dev": "node -r dotenv/config --watch --env-file=.env  server.js"
+    "start": "node index.js",
+    "dev": "node -r dotenv/config --watch  index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "back-end-blog": "file:",
     "express": "^4.19.2",
     "pg": "^8.12.0"
   },
