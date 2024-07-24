@@ -32,9 +32,9 @@ export const createPost = async (req, res) => {
 // GET POST BERKAN
 export const getPost = async (req, res) => {
   const { id } = req.params;
-
   try {
-    const result = await Post.findByPk({ id });
+    const result = await Post.findByPk(id);
+    if (!result) return res.status(404).json({ error: "Post not found" });
     res.status(200).json({ message: "got worked", result });
   } catch (error) {
     console.log(error);
