@@ -30,7 +30,7 @@ export const createPost = async (req, res) => {
 // GET POST BERKAN
 export const getPost = async (req, res) => {
 
-const  {id} = req.params();
+const  {id} = req.params;
 
 try {
   const result = await Post.findByPk({id});
