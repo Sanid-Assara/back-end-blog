@@ -15,6 +15,11 @@ export const getPosts = async (req, res) => {
 // CREATE POST BERKAN
 export const createPost = async (req, res) => {
   try {
+    const {
+      body: { author, title, content, cover },
+    } = req;
+    if (!author || !title || !content || !cover)
+      return res.status(400).json({ error: "All field are required" });
     const result = await Post.create(req.body);
     res.status(200).json({ message: "Post created", result });
     // const { author, title, content, cover } = req.body;
