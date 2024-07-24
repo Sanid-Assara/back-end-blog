@@ -1,5 +1,6 @@
 import express from "express";
 import { postsRouter } from "./routers/postsRouter.js";
+
 const PORT = process.env.PORT ?? 5000;
 
 const app = express();
