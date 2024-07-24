@@ -20,7 +20,7 @@ export const createPost = async (req, res) => {
     // const { author, title, content, cover } = req.body;
   } catch (error) {
     console.log(error);
-    res.status(500).send("Something went wrong");
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -33,7 +33,7 @@ export const getPost = async (req, res) => {
     res.status(200).json({ message: "got worked", result });
   } catch (error) {
     console.log(error);
-    res.status(500).send("Something went wrong");
+    res.status(500).json({ error: error.message });
   }
 };
 
