@@ -4,8 +4,12 @@ import Post from "../models/Post.js";
 //Erika
 // 1- Homepage (this include Nav and footer) a list of post + get request to retrieve all the post
 export const getPosts = async (req, res) => {
-  res.send("<h1>If you see me, it means it works</h1>"); //Delete this when you start coding
-  // You code solution goes here!
+  try {
+    const posts = await Post.findAll();
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 //Erika
 
