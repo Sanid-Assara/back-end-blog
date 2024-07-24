@@ -40,7 +40,7 @@ export const getPost = async (req, res) => {
   try {
     const result = await Post.findByPk(id);
     if (!result) return res.status(404).json({ error: "Post not found" });
-    res.status(200).json({ message: "got worked", result });
+    res.status(200).json(result);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: error.message });
