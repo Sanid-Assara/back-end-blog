@@ -1,6 +1,5 @@
 import Post from "../models/Post.js";
 
-
 //Erika
 // 1- Homepage (this include Nav and footer) a list of post + get request to retrieve all the post
 export const getPosts = async (req, res) => {
@@ -17,29 +16,25 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
   try {
     const result = await Post.create(req.body);
-    res.status(200).json({message: "Post created", result});
+    res.status(200).json({ message: "Post created", result });
     // const { author, title, content, cover } = req.body;
-
   } catch (error) {
     console.log(error);
     res.status(500).send("Something went wrong");
   }
 };
 
-
 // GET POST BERKAN
 export const getPost = async (req, res) => {
+  const { id } = req.params;
 
-const  {id} = req.params;
-
-try {
-  const result = await Post.findByPk({id});
-  res.status(200).json({message: "got worked", result});
-
-} catch (error) {
-  console.log(error);
-  res.status(500).send("Something went wrong");
-}
+  try {
+    const result = await Post.findByPk({ id });
+    res.status(200).json({ message: "got worked", result });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Something went wrong");
+  }
 };
 
 //Berkan
@@ -49,10 +44,10 @@ try {
 export const updatePost = async (req, res) => {
   try {
     const {
-      body: { author, title, content, cover, date },
+      body: { author, title, content, cover },
       params: { id },
     } = req;
-    if (!author || !title || !content || !cover || !date)
+    if (!author || !title || !content || !cover)
       return res.status(400).json({
         error: "All field are required",
       });
