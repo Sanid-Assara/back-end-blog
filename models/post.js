@@ -18,10 +18,6 @@ export const Post = sequelize.define("Post", {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  date: {
-    type: DataTypes.DATEONLY,
-    allowNull: false,
-  },
 });
 
 Post.sync();
