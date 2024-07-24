@@ -4,8 +4,13 @@ import Post from "../models/Post.js";
 // 1- Homepage (this include Nav and footer) a list of post + get request to retrieve all the post
 export const getPosts = async (req, res) => {
   try {
+    const limit = parseInt(req.query.limit);
     const posts = await Post.findAll();
-    res.json(posts);
+    if (!isNaN(limit) && limit > 0) {
+      res.json(posts.slice(0, limit));
+    } else {
+      res.json(posts);
+    }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -41,7 +46,6 @@ export const getPost = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
 //Berkan
 
 //Sanad
