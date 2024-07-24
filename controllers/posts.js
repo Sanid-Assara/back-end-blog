@@ -1,6 +1,5 @@
 import Post from "../models/Post.js";
-// import pg from "pg";
-// const { Client } = pg;
+
 
 //Erika
 // 1- Homepage (this include Nav and footer) a list of post + get request to retrieve all the post
@@ -13,7 +12,7 @@ export const getPosts = async (req, res) => {
 // CREATE POST BERKAN
 export const createPost = async (req, res) => {
   try {
-    const result = await Post.create(red.body);
+    const result = await Post.create(req.body);
     res.status(200).json({message: "Post created", result});
     // const { author, title, content, cover } = req.body;
 
