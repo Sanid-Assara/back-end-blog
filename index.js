@@ -6,8 +6,8 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/api/posts", postsRouter);
+app.use("/API/posts", postsRouter);
 
 app.listen(PORT, () => {
-  console.log(`The server is running at http://localhost:${PORT}/api/posts/`);
+  console.log(`The server is running at http://localhost:${PORT}/API/posts/`);
 });
